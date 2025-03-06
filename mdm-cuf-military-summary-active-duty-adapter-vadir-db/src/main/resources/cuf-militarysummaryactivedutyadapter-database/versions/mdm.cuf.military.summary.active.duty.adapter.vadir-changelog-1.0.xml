@@ -1,0 +1,71 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="darias"
+		id="0.1-CUF_MILITARYSUMMARYACTIVEDUTYADAPTER">
+		<createSequence cacheSize="20" cycle="false" incrementBy="1" ordered="false" sequenceName="MILITARYSUMMARYACTIVEDUTYADAPTER_S" startValue="1" />
+		<createTable tableName="MILITARYSUMMARYACTIVEDUTYADAPTER">
+			<column name="MILITARYSUMMARYACTIVEDUTYADAPTER_ID" type="BIGINT">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="MILITARYSUMMARYACTIVEDUTYADAPTER_PK" />
+			</column>
+            <column name="DEMO_FIELD" type="VARCHAR(255 CHAR)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="CREATE_DATE" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATE_DATE" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORIG_SOURCE_SYSTEM" type="VARCHAR(255 CHAR)" />
+            <column name="SOURCE_DATE" type="DATETIME">
+                <constraints nullable="false" />
+            </column>
+            <column name="SOURCE_SYSTEM" type="VARCHAR(255 CHAR)">
+                <constraints nullable="false" />
+            </column>
+            <column name="SOURCE_SYSTEM_USER" type="VARCHAR(255 CHAR)" />
+            <column name="TX_AUDIT_ID" type="VARCHAR(36 CHAR)">
+                <constraints nullable="false" />
+            </column>
+		</createTable>
+		
+		<createTable tableName="MILITARYSUMMARYACTIVEDUTYADAPTER_AUD">
+            <column name="MILITARYSUMMARYACTIVEDUTYADAPTER_ID" type="BIGINT">
+                <constraints nullable="false" />
+            </column>
+            <column name="REV" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="REVTYPE" type="TINYINT" />
+		    <column name="CREATE_DATE" type="DATETIME" />
+            <column name="CREATE_DATE_MOD" type="BOOLEAN" />
+            <column name="UPDATE_DATE" type="DATETIME" />
+            <column name="UPDATE_DATE_MOD" type="BOOLEAN" />
+            <column name="ORIG_SOURCE_SYSTEM" type="VARCHAR(255 CHAR)" />
+            <column name="ORIG_SOURCE_SYSTEM_MOD" type="BOOLEAN" />
+            <column name="SOURCE_DATE" type="DATETIME" />
+            <column name="SOURCE_DATE_MOD" type="BOOLEAN" />
+            <column name="SOURCE_SYSTEM" type="VARCHAR(255 CHAR)" />
+            <column name="SOURCE_SYSTEM_MOD" type="BOOLEAN" />
+            <column name="SOURCE_SYSTEM_USER" type="VARCHAR(255 CHAR)" />
+            <column name="SOURCE_SYSTEM_USER_MOD" type="BOOLEAN" />
+            <column name="TX_AUDIT_ID" type="VARCHAR(36 CHAR)" />
+            <column name="TX_AUDIT_ID_MOD" type="BOOLEAN" />
+            <column name="DEMO_FIELD" type="VARCHAR(255 CHAR)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="DEMO_FIELD_MOD" type="BOOLEAN" />
+        </createTable>
+        
+        <createTable tableName="REVINFO">
+            <column name="REV" type="INT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="REVINFO_PK"/>
+            </column>
+            <column name="REVTSTMP" type="BIGINT"/>
+        </createTable>
+        
+	</changeSet>
+</databaseChangeLog>

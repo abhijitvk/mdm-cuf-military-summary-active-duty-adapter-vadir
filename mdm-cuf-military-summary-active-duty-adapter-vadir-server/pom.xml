@@ -1,0 +1,90 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>mdm.cuf.military.summary.active.duty.adapter.vadir</groupId>
+		<artifactId>mdm-cuf-military-summary-active-duty-adapter-vadir-parentpom</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../mdm-cuf-military-summary-active-duty-adapter-vadir-parentpom</relativePath>
+	</parent>
+
+	<artifactId>mdm-cuf-military-summary-active-duty-adapter-vadir-server</artifactId>
+	<packaging>jar</packaging>
+	<name>mdm-cuf-military-summary-active-duty-adapter-vadir-server</name>
+	<description>mdm-cuf-military-summary-active-duty-adapter-vadir Server Module</description>
+
+	<dependencies>
+		<!-- mdm-cuf-core dependencies -->
+		<dependency>
+			<groupId>mdm.cuf.core</groupId>
+			<artifactId>mdm-cuf-core</artifactId>
+			<scope>test</scope>
+			<type>test-jar</type>
+		</dependency>
+		<dependency>
+			<groupId>mdm.cuf.core</groupId>
+			<artifactId>mdm-cuf-core-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mdm.cuf.core</groupId>
+			<artifactId>mdm-cuf-core-server</artifactId>
+			<scope>test</scope>
+			<type>test-jar</type>
+		</dependency>
+		<dependency>
+			<groupId>mdm.cuf.core</groupId>
+			<artifactId>mdm-cuf-core-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>mdm.cuf.core</groupId>
+			<artifactId>mdm-cuf-core-open-api</artifactId>
+		</dependency>
+		
+		<!-- mdm-cuf-military-summary-active-duty-adapter-vadir dependencies -->
+		<dependency>
+            <groupId>mdm.cuf.military.summary.active.duty.adapter.vadir</groupId>
+            <artifactId>mdm-cuf-military-summary-active-duty-adapter-vadir-db</artifactId>
+        </dependency>
+		<dependency>
+			<groupId>mdm.cuf.military.summary.active.duty.adapter.vadir</groupId>
+			<artifactId>mdm-cuf-military-summary-active-duty-adapter-vadir-bio</artifactId>
+		</dependency>
+
+
+		<!-- spring boot dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- integration testing dependencies -->
+		<dependency>
+			<groupId>com.jayway.restassured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.restassured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+            <!-- inclusion triggers spring-boot-maven-plugin repackage to run and create executable artifact -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+		</plugins>
+	</build>
+</project>
