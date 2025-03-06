@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * This is the actual Spring boot application that loads up the entire app.
@@ -21,6 +23,8 @@ import org.slf4j.LoggerFactory;
 @SpringBootApplication
 @Import(MilitarySummaryActiveDutyAdapterServerConfig.class)
 @ComponentScan(basePackages = "mdm.cuf.military.summary.active.duty.adapter.vadir.server", excludeFilters = @Filter(Configuration.class))
+@EnableAsync
+@EnableScheduling
 public class MilitarySummaryActiveDutyAdapterServerApplication extends SpringBootServletInitializer {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(MilitarySummaryActiveDutyAdapterServerApplication.class);

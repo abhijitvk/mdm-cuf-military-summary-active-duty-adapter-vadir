@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mrao"
+               id="0.1-CUF_VADIR_MLTRY_SUMMARY_CDC">
+        <createSequence cacheSize="20" cycle="false" incrementBy="1" ordered="false" sequenceName="VADIR_MLTRY_SUMMARY_CDC_S" startValue="1" />
+        <createTable tableName="VADIR_MLTRY_SUMMARY_CDC">
+            <column name="VADIR_MLTRY_SUMMARY_CDC_ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"
+                             primaryKeyName="VADIR_MLTRY_SUMMARY_CDC_PK" />
+            </column>
+            <column name="TOTAL_ACTIVE_SVC_DAYS_NBR" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="EDIPI" type="VARCHAR(30 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DATE" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATE_DATE" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(1 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

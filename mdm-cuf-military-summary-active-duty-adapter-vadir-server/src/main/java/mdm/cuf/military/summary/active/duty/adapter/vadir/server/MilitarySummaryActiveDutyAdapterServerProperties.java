@@ -14,5 +14,13 @@ import mdm.cuf.core.AbstractMdmCufCoreProperties;
 @ConfigurationProperties(prefix = "mdm-cuf-military-summary-active-duty-adapter-vadir")
 public class MilitarySummaryActiveDutyAdapterServerProperties extends AbstractMdmCufCoreProperties {
 
+    private String serviceHost;
 
+    public String getServiceHost() {
+        return serviceHost;
+    }
+
+    public void setServiceHost(String serviceHost) {
+        this.serviceHost = serviceHost;
+    }
 }

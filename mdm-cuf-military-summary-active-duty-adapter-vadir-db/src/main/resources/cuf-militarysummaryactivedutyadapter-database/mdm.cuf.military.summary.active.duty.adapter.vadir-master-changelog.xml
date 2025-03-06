@@ -1,4 +1,5 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <include file="classpath:cuf-core-database/mdm.cuf.core-master-changelog.xml"/>
     <include file="classpath:cuf-militarysummaryactivedutyadapter-database/versions/mdm.cuf.military.summary.active.duty.adapter.vadir-changelog-1.0.xml"/>
+    <include file="classpath:cuf-militarysummaryactivedutyadapter-database/versions/mdm.cuf.military.summary.active.duty.adapter.vadir-changelog-2.0.xml"/>
 </databaseChangeLog>

@@ -52,6 +52,12 @@
 			<artifactId>mdm-cuf-military-summary-active-duty-adapter-vadir-bio</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>mdm.cuf.military.personnel.active.service.hub</groupId>
+			<artifactId>mdm-cuf-military-personnel-active-service-hub-bio</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
 
 		<!-- spring boot dependencies -->
 		<dependency>

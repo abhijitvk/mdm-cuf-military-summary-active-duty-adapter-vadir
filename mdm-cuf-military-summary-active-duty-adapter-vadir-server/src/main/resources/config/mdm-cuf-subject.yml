@@ -34,6 +34,9 @@ info.mdm-cuf-military-summary-active-duty-adapter-vadir-server:
     build.timestamp: "@timestamp@"
     build.revision: "@buildNumber@"
     build.buildServerBuildNumber: "@buildServerBuildNumber@"
+    scheduled-delay-rate: 5000
+    rest-clients:
+      service-host: http://localhost:9090/militarypersonnelactiveservicehub/v1/masterDataPush
     
 mdm-cuf: 
   instance-subject-name: MILITARYSUMMARYACTIVEDUTYADAPTER
@@ -49,11 +52,15 @@ server.port: 9081
 # standard config likely reusable as-is, thus included in core-server
 #----------------------------------------------------------------------------------------------------------------------
 spring:
+  h2:
+    console:
+      settings:
+        web-allow-others: true
   config:
     activate:
       on-profile: ENV-LOCAL-DEV
   jpa.hibernate.ddl-auto: none
-  datasource.url: jdbc:h2:mem:testdb;Mode=Oracle
+  datasource.url: jdbc:h2:mem:vadiradapterdb;Mode=Oracle
   data.redis.ssl.enabled: false
 
 springdoc:
