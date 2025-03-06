@@ -39,7 +39,7 @@ public class MilitaryPersonPollingService {
             bio.setEdipi(result.getEdipi());
             bio.setTotalActiveSvcDays(result.getTotalActiveSvcDays());
             bio.setSourceSystem("VADIR");
-            bio.setOriginatingSourceSystem("originatingSourceSystem");
+            bio.setOriginatingSourceSystem("VADIR");
             bio.setSourceDate(Calendar.getInstance().getTime());
             bio.setSourceSystemUser("VADIR");
 
