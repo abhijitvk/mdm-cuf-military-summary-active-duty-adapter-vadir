@@ -40,7 +40,7 @@ public class MilitarySummaryActiveDutyAdapterServerRestProviderConfig {
 
     @Bean
     public OpenAPI customOpenAPI() throws IOException {
-        String title = "MilitarySummaryActiveDutyAdapter API";
+        String title = "API Demo for Scenario 2 (Mastering of Data: VADIR Adapter)";
         InputStream is = null;
         String description = null;
         try {
