@@ -23,10 +23,11 @@ public class MilitaryPersonPollingService {
     private VadirMilitaryPersonCDCRepository repository;
 
 
-
     @Autowired
     private MeterRegistry meterRegistry;
 
+    @Autowired
+    MilitaryServiceHubClient client;
 
     @Scheduled(fixedDelayString = "${info.mdm-cuf-military-summary-active-duty-adapter-vadir-server.scheduled-delay-rate}")
     public void pollForNewChangeRecords() {
@@ -43,7 +44,9 @@ public class MilitaryPersonPollingService {
             bio.setSourceDate(Calendar.getInstance().getTime());
             bio.setSourceSystemUser("VADIR");
 
-            MilitaryServiceHubClient client = new MilitaryServiceHubClient();
+
+            System.out.println("client **********+*********"+client);
+
             client.pushToMaintenanceEndpoint(bio);
 
             repository.updateMilitaryServiceCDC(result.getId());

@@ -32,9 +32,7 @@ public class MilitaryServiceHubClient extends AbstractRestClient {
     @Autowired
     private RestTemplateBuilder restTemplateBuilder;
 
-
-    @Value("${mdm-cuf.instance-system-name}")
-    private String systemName;
+    private String serviceHost;
 
     @Autowired
     protected Environment environment;
@@ -44,6 +42,12 @@ public class MilitaryServiceHubClient extends AbstractRestClient {
 
     private static final ParameterizedTypeReference<CufPushResponse<MilitaryPersonnelActiveServiceHubBio>> CONTACT_INFO_BIO_TYPE_REF =
             new ParameterizedTypeReference<>(){};
+
+    @Autowired
+    public MilitaryServiceHubClient(@Value("${info.mdm-cuf-military-summary-active-duty-adapter-vadir-server.service-host}") String serviceHost) {
+        this.serviceHost = serviceHost;
+        System.out.println(serviceHost);
+    }
 
     @PostConstruct
     public void setupRestTemplate() {
@@ -59,11 +63,13 @@ public class MilitaryServiceHubClient extends AbstractRestClient {
         // Add hint if skipPushToPartner is true
 
 
+        System.out.println("serviceHost "+ serviceHost);
+
         HttpEntity<CufPushRequest<MilitaryPersonnelActiveServiceHubBio>> requestEntity = new HttpEntity<>(cufPushRequest);
         RestTemplate customRestTemplate = new RestTemplate();
         ResponseEntity<CufPushResponse<MilitaryPersonnelActiveServiceHubBio>> responseEntityString =
                 customRestTemplate.exchange(
-                        "http://localhost:9090/militarypersonnelactiveservicehub/v1/masterDataPush",
+                        serviceHost,
                         HttpMethod.POST,
                         requestEntity,
                         CONTACT_INFO_BIO_TYPE_REF);
